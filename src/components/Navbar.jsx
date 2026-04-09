@@ -31,7 +31,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-          <a href="#features" className="hover:text-[#b0f020] transition-colors">Features</a>
+          <Link to="/gyms" className="hover:text-[#b0f020] transition-colors">GYM Finder</Link>
           <a href="#trainers" className="hover:text-[#b0f020] transition-colors">Trainers</a>
           <a href="#aicoach" className="hover:text-[#b0f020] transition-colors">AI Coach</a>
           <a href="#shop" className="hover:text-[#b0f020] transition-colors">Shop</a>
@@ -63,7 +63,7 @@ const Navbar = () => {
           animate={{ opacity: 1, height: 'auto' }}
           className="md:hidden bg-[#151915] border-t border-[#2a2f2a] mt-4 p-4 flex flex-col gap-4 absolute w-full"
         >
-          <a href="#features" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>Features</a>
+          <Link to="/gyms" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>GYM Finder</Link>
           <a href="#trainers" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>Trainers</a>
           <a href="#aicoach" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>AI Coach</a>
           <a href="#shop" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>Shop</a>

@@ -1,9 +1,37 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import { motion, useMotionValue, useTransform, useInView, animate } from 'framer-motion';
 import { MapPin, Users, Cpu, ShoppingCart, Target, PlayCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import heroBg from '../assets/hero-bg.png';
+
+const Counter = ({ value }) => {
+    const count = useMotionValue(0);
+    const suffix = value.match(/[A-Za-z+]+$/)?.[0] || '';
+    const numericPart = parseFloat(value.replace(/[^0-9.]/g, ''));
+    
+    const rounded = useTransform(count, (latest) => {
+        const num = Math.floor(latest);
+        const formatted = value.includes(',') ? num.toLocaleString() : num;
+        return formatted + suffix;
+    });
+
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+    useEffect(() => {
+        if (isInView) {
+            const controls = animate(count, numericPart, { 
+                duration: 2, 
+                ease: "easeOut",
+                delay: 0.2 
+            });
+            return () => controls.stop();
+        }
+    }, [isInView, numericPart, count]);
+
+    return <motion.span ref={ref}>{rounded}</motion.span>;
+};
 
 const Home = () => {
     const stats = [
@@ -126,7 +154,9 @@ const Home = () => {
                     >
                         {stats.map((stat, index) => (
                             <motion.div key={index} variants={fadeInUp} className="w-1/2 md:w-1/4 text-center py-6 md:py-0 px-4">
-                                <h3 className="text-3xl md:text-4xl font-bold text-[#b0f020] mb-2">{stat.value}</h3>
+                                <h3 className="text-3xl md:text-4xl font-bold text-[#b0f020] mb-2">
+                                    <Counter value={stat.value} />
+                                </h3>
                                 <p className="text-gray-500 text-xs tracking-wider font-semibold uppercase">{stat.label}</p>
                             </motion.div>
                         ))}
