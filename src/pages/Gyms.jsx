@@ -51,7 +51,7 @@ const Gyms = () => {
         <div className="bg-[#0a0d0a] min-h-screen text-white font-sans selection:bg-[#b0f020] selection:text-black">
             <Navbar />
 
-            <div className="pt-24 pb-12 px-6 md:px-8 mx-auto">
+            <div className="pt-24 pb-12 px-6 md:px-8  mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
