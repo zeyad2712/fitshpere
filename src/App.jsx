@@ -4,6 +4,10 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
 const Gyms = lazy(() => import('./pages/Gyms'));
+const Trainers = lazy(() => import('./pages/Trainers'));
+const TrainerProfile = lazy(() => import('./pages/TrainerProfile'));
+const Shop = lazy(() => import('./pages/Shop'));
+const ProductDetails = lazy(() => import('./pages/ProductDetails'));
 const GymDetails = lazy(() => import('./pages/GymDetails'));
 const SignUp = lazy(() => import('./pages/Auth/SignUp'));
 const Login = lazy(() => import('./pages/Auth/Login'));
@@ -22,6 +26,10 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/gyms" element={<Gyms />} />
+                    <Route path="/trainers" element={<Trainers />} />
+                    <Route path="/trainer/:id" element={<TrainerProfile />} />
+                    <Route path="/shop" element={<Shop />} />
+                    <Route path="/product/:id" element={<ProductDetails />} />
                     <Route path="/gym/:id" element={<GymDetails />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/login" element={<Login />} />

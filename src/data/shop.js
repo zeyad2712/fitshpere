@@ -1,0 +1,80 @@
+export const productsData = [
+    {
+        id: 1,
+        name: "HydroWhey Protein Isolate",
+        category: "SUPPLEMENTS",
+        rating: 4.9,
+        reviews: 320,
+        price: 54.99,
+        originalPrice: null,
+        description: "Ultra-pure protein with rapid absorption for maximum muscle recovery.",
+        image: "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&q=80&w=600",
+        badge: "BEST SELLER",
+        dietary: ["Gluten Free", "No Sugar Added"]
+    },
+    {
+        id: 2,
+        name: "Apex Training Tee",
+        category: "APPAREL",
+        rating: 4.7,
+        reviews: 145,
+        price: 38.00,
+        originalPrice: null,
+        description: "Moisture-wicking fabric with 4-way stretch for unrestricted movement.",
+        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=600",
+        badge: null,
+        dietary: []
+    },
+    {
+        id: 3,
+        name: "Pro-Grip Band Set",
+        category: "GEAR",
+        rating: 4.8,
+        reviews: 210,
+        price: 24.99,
+        originalPrice: 34.00,
+        description: "5 resistance levels ranging from light to extra-heavy with carry bag.",
+        image: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&q=80&w=600",
+        badge: "NEW",
+        dietary: []
+    },
+    {
+        id: 4,
+        name: "Hybrid Shaker Pro",
+        category: "GEAR",
+        rating: 4.5,
+        reviews: 89,
+        price: 18.50,
+        originalPrice: null,
+        description: "Leak-proof lid with integrated storage compartment for powder.",
+        image: "https://images.unsplash.com/photo-1526502769970-13d80a13e2bb?auto=format&fit=crop&q=80&w=600",
+        badge: null,
+        dietary: []
+    },
+    {
+        id: 5,
+        name: "Ignition Pre-Workout",
+        category: "SUPPLEMENTS",
+        rating: 4.9,
+        reviews: 450,
+        price: 42.99,
+        originalPrice: null,
+        description: "High-intensity energy and focus formula without the crash.",
+        image: "https://images.unsplash.com/photo-1579722822168-5221b66b4929?auto=format&fit=crop&q=80&w=600",
+        badge: null,
+        dietary: ["Vegan Friendly", "Gluten Free"]
+    },
+    {
+        id: 6,
+        name: "Core Seamless Leggings",
+        category: "APPAREL",
+        rating: 4.8,
+        reviews: 560,
+        price: 45.00,
+        originalPrice: null,
+        description: "Compression fit with sweat-wicking properties and squat-proof design.",
+        image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&q=80&w=600",
+        badge: null,
+        dietary: []
+    }
+];

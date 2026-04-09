@@ -32,9 +32,11 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
           <Link to="/gyms" className="hover:text-[#b0f020] transition-colors">GYM Finder</Link>
-          <a href="#trainers" className="hover:text-[#b0f020] transition-colors">Trainers</a>
+          <Link to="/trainers" className="hover:text-[#b0f020] transition-colors">Trainers</Link>
           <a href="#aicoach" className="hover:text-[#b0f020] transition-colors">AI Coach</a>
-          <a href="#shop" className="hover:text-[#b0f020] transition-colors">Shop</a>
+          <Link to="/shop" className="hover:text-[#b0f020] transition-colors">Shop</Link>
+          <Link to="/wishlist" className="hover:text-[#b0f020] transition-colors">Wishlist</Link>
+          <Link to="/cart" className="hover:text-[#b0f020] transition-colors">Cart</Link>
         </div>
 
         {/* Auth Actions */}
@@ -64,9 +66,11 @@ const Navbar = () => {
           className="md:hidden bg-[#151915] border-t border-[#2a2f2a] mt-4 p-4 flex flex-col gap-4 absolute w-full"
         >
           <Link to="/gyms" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>GYM Finder</Link>
-          <a href="#trainers" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>Trainers</a>
+          <Link to="/trainers" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>Trainers</Link>
           <a href="#aicoach" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>AI Coach</a>
-          <a href="#shop" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>Shop</a>
+          <Link to="/shop" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>Shop</Link>
+          <Link to="/wishlist" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>Wishlist</Link>
+          <Link to="/cart" className="text-gray-300 hover:text-[#b0f020] p-2" onClick={() => setMobileMenuOpen(false)}>Cart</Link>
           <div className="flex flex-col gap-2 pt-4 border-t border-[#2a2f2a]">
             <Link to="/login" className="w-full text-center py-2 text-white hover:text-[#b0f020] font-medium" onClick={() => setMobileMenuOpen(false)}>Log in</Link>
             <Link to="/signup" className="w-full text-center py-2 bg-[#b0f020] text-[#0f120f] rounded-lg font-bold" onClick={() => setMobileMenuOpen(false)}>Sign up</Link>
