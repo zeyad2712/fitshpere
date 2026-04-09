@@ -1,3 +1,7 @@
+import gym1 from '../assets/gyms/gym1.png';
+import gym2 from '../assets/gyms/gym2.png';
+import gym3 from '../assets/gyms/gym3.png';
+
 export const gymsData = [
     {
         id: 1,
@@ -8,7 +12,7 @@ export const gymsData = [
         reviews: 245,
         price: "$80/mo",
         images: [
-            "/src/assets/gyms/gym1.png",
+            gym1,
             "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200",
             "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1200"
         ],
@@ -51,7 +55,7 @@ export const gymsData = [
         reviews: 189,
         price: "$120/mo",
         images: [
-            "/src/assets/gyms/gym2.png",
+            gym2,
             "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200",
             "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1200"
         ],
@@ -74,7 +78,7 @@ export const gymsData = [
         reviews: 312,
         price: "$65/mo",
         images: [
-            "/src/assets/gyms/gym3.png",
+            gym3,
             "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?q=80&w=1200",
             "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?q=80&w=1200"
         ],
@@ -96,7 +100,7 @@ export const gymsData = [
         reviews: 156,
         price: "$150/mo",
         images: [
-            "/src/assets/gyms/gym1.png",
+            gym1,
             "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200",
             "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200"
         ],
