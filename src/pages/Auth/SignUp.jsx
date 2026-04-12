@@ -76,7 +76,7 @@ const SignUp = () => {
                                 <input type="password" placeholder="••••••••" className="form-input" />
                             </div>
                         </div>
-                        
+
                         <div className="form-group">
                             <label>Confirm Password</label>
                             <div className="input-wrapper">

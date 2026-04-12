@@ -11,7 +11,7 @@ const Counter = ({ value }) => {
     const strValue = value.toString();
     const suffix = strValue.match(/[A-Za-z+]+$/)?.[0] || '';
     const numericPart = parseFloat(strValue.replace(/[^0-9.]/g, ''));
-    
+
     const rounded = useTransform(count, (latest) => {
         // preserve decimal for float ratings like 4.9, otherwise use floor
         const num = strValue.includes('.') ? Number(latest.toFixed(1)) : Math.floor(latest);
@@ -24,10 +24,10 @@ const Counter = ({ value }) => {
 
     useEffect(() => {
         if (isInView) {
-            const controls = animate(count, numericPart, { 
-                duration: 2, 
+            const controls = animate(count, numericPart, {
+                duration: 2,
                 ease: "easeOut",
-                delay: 0.2 
+                delay: 0.2
             });
             return () => controls.stop();
         }
@@ -39,7 +39,7 @@ const Counter = ({ value }) => {
 const TrainerProfile = () => {
     const { id } = useParams();
     const [activeTab, setActiveTab] = useState('About');
-    
+
     // Find trainer or return mock data if not found (for robustness)
     const trainer = trainersData.find(t => t.id === parseInt(id)) || trainersData[0];
 
@@ -75,16 +75,16 @@ const TrainerProfile = () => {
                 <div className="flex flex-col lg:flex-row gap-8">
                     {/* Left Column (Main Details) - taking up full width as requested to ignore right bar */}
                     <div className="flex-1 max-w-4xl mx-auto w-full space-y-8">
-                        
+
                         {/* Hero Card */}
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             className="bg-gradient-to-r from-[#172017] to-[#121612] border border-[#1c221c] rounded-[32px] p-6 lg:p-10 flex flex-col sm:flex-row items-center sm:items-start gap-8 relative overflow-hidden"
                         >
                             {/* Glow Effect behind avatar */}
                             <div className="absolute top-1/2 left-20 -translate-y-1/2 w-48 h-48 bg-[#b0f020] opacity-[0.15] blur-[80px] rounded-full pointer-events-none"></div>
-                            
+
                             <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-[24px] rounded-bl-none overflow-hidden shrink-0 border border-[#b0f020]/20 shadow-[0_0_30px_rgba(176,240,32,0.15)] bg-gradient-to-b from-[#b0f020]/10 to-[#b0f020]/5 pt-4">
                                 <img src={trainer.image} alt={trainer.name} className="w-full h-full object-cover object-bottom" />
                             </div>
@@ -95,7 +95,7 @@ const TrainerProfile = () => {
                                     <ShieldCheck className="text-[#b0f020] mt-1 shrink-0" size={28} />
                                 </h1>
                                 <p className="text-gray-400 text-base sm:text-lg mb-6">{trainer.bio.split('.')[0]}</p>
-                                
+
                                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
                                     <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#3c4a24]/30 border border-[#b0f020]/30 text-[#b0f020] text-xs font-bold font-mono">
                                         <MapPin size={14} /> Los Angeles, CA
@@ -108,7 +108,7 @@ const TrainerProfile = () => {
                         </motion.div>
 
                         {/* Stats Grid */}
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}

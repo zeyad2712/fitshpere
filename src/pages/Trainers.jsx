@@ -103,13 +103,13 @@ const Trainers = () => {
                     {/* Left Sidebar Filters */}
                     <div className="w-full md:w-64 shrink-0 md:sticky md:top-24 h-fit md:max-h-[calc(100vh-8rem)] overflow-y-auto custom-scrollbar pr-2 pb-4">
                         {/* Mobile Filter Toggle */}
-                        <div 
+                        <div
                             className="md:hidden flex items-center justify-between bg-[#121612] p-4 rounded-2xl border border-[#1c221c] cursor-pointer mb-4"
                             onClick={() => setIsMobileFiltersOpen(!isMobileFiltersOpen)}
                         >
                             <div className="flex items-center gap-2">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 6H20M6 12H18M9 18H15" stroke="#b0f020" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M4 6H20M6 12H18M9 18H15" stroke="#b0f020" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                                 <h2 className="text-xl font-bold">Filters</h2>
                             </div>
@@ -119,102 +119,102 @@ const Trainers = () => {
                         {/* Desktop header */}
                         <div className="hidden md:flex items-center gap-2 mb-8">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 6H20M6 12H18M9 18H15" stroke="#b0f020" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M4 6H20M6 12H18M9 18H15" stroke="#b0f020" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                             <h2 className="text-xl font-bold">Filters</h2>
                         </div>
 
                         <div className={`space-y-10 ${isMobileFiltersOpen ? 'block' : 'hidden md:block'}`}>
 
-                        {/* Specialty */}
-                        <div>
-                            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Specialty</h3>
-                            <div className="space-y-3">
-                                {specialtyOptions.map(option => (
-                                    <label key={option.value} className="flex items-center gap-3 cursor-pointer group">
-                                        <input 
-                                            type="checkbox" 
-                                            className="hidden"
-                                            checked={selectedSpecialties.includes(option.value)}
-                                            onChange={() => toggleSpecialty(option.value)}
-                                        />
-                                        <div className={`w-5 h-5 rounded-full flex items-center justify-center border transition-all ${selectedSpecialties.includes(option.value) ? 'bg-[#b0f020] border-[#b0f020]' : 'border-gray-600 group-hover:border-gray-400'}`}>
-                                            {selectedSpecialties.includes(option.value) && (
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0a0d0a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                            )}
-                                        </div>
-                                        <span className="text-sm font-medium text-gray-300">{option.label}</span>
-                                    </label>
-                                ))}
+                            {/* Specialty */}
+                            <div>
+                                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Specialty</h3>
+                                <div className="space-y-3">
+                                    {specialtyOptions.map(option => (
+                                        <label key={option.value} className="flex items-center gap-3 cursor-pointer group">
+                                            <input
+                                                type="checkbox"
+                                                className="hidden"
+                                                checked={selectedSpecialties.includes(option.value)}
+                                                onChange={() => toggleSpecialty(option.value)}
+                                            />
+                                            <div className={`w-5 h-5 rounded-full flex items-center justify-center border transition-all ${selectedSpecialties.includes(option.value) ? 'bg-[#b0f020] border-[#b0f020]' : 'border-gray-600 group-hover:border-gray-400'}`}>
+                                                {selectedSpecialties.includes(option.value) && (
+                                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0a0d0a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                                )}
+                                            </div>
+                                            <span className="text-sm font-medium text-gray-300">{option.label}</span>
+                                        </label>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Price Range */}
-                        <div>
-                            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Price Range ($/hr)</h3>
-                            <input 
-                                type="range" 
-                                min="20" 
-                                max="200" 
-                                value={maxPrice} 
-                                onChange={(e) => setMaxPrice(parseInt(e.target.value))}
-                                className="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#b0f020]"
-                            />
-                            <div className="flex justify-between text-xs text-gray-500 mt-2 font-medium">
-                                <span>$20</span>
-                                <span>Up to ${maxPrice}</span>
-                                <span>$200+</span>
+                            {/* Price Range */}
+                            <div>
+                                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Price Range ($/hr)</h3>
+                                <input
+                                    type="range"
+                                    min="20"
+                                    max="200"
+                                    value={maxPrice}
+                                    onChange={(e) => setMaxPrice(parseInt(e.target.value))}
+                                    className="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#b0f020]"
+                                />
+                                <div className="flex justify-between text-xs text-gray-500 mt-2 font-medium">
+                                    <span>$20</span>
+                                    <span>Up to ${maxPrice}</span>
+                                    <span>$200+</span>
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Minimum Rating */}
-                        <div>
-                            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Minimum Rating</h3>
-                            <div className="space-y-2">
-                                <button 
-                                    onClick={() => setMinRating(minRating === 4.5 ? 0 : 4.5)}
-                                    className={`w-full text-left px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all ${minRating === 4.5 ? 'bg-[#1c221c] border border-[#b0f020]/30 text-[#b0f020]' : 'hover:bg-[#121612] text-gray-400'}`}
-                                >
-                                    <Star size={16} fill={minRating === 4.5 ? "currentColor" : "none"} className={minRating === 4.5 ? "text-[#b0f020]" : "text-gray-500"} />
-                                    4.5 & up
-                                </button>
-                                <button 
-                                    onClick={() => setMinRating(minRating === 4.0 ? 0 : 4.0)}
-                                    className={`w-full text-left px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all ${minRating === 4.0 ? 'bg-[#1c221c] border border-[#b0f020]/30 text-[#b0f020]' : 'hover:bg-[#121612] text-gray-400'}`}
-                                >
-                                    <Star size={16} fill={minRating === 4.0 ? "currentColor" : "none"} className={minRating === 4.0 ? "text-[#b0f020]" : "text-gray-500"} />
-                                    4.0 & up
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* Availability */}
-                        <div>
-                            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Availability</h3>
-                            <div className="grid grid-cols-2 gap-2">
-                                {availabilityOptions.map(option => (
+                            {/* Minimum Rating */}
+                            <div>
+                                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Minimum Rating</h3>
+                                <div className="space-y-2">
                                     <button
-                                        key={option}
-                                        onClick={() => toggleAvailability(option)}
-                                        className={`py-2 text-xs font-bold rounded-full border transition-all ${selectedAvailability.includes(option) ? 'bg-[#1c221c] border-[#b0f020] text-white' : 'border-[#1c221c] text-gray-500 hover:border-gray-600'}`}
+                                        onClick={() => setMinRating(minRating === 4.5 ? 0 : 4.5)}
+                                        className={`w-full text-left px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all ${minRating === 4.5 ? 'bg-[#1c221c] border border-[#b0f020]/30 text-[#b0f020]' : 'hover:bg-[#121612] text-gray-400'}`}
                                     >
-                                        {option}
+                                        <Star size={16} fill={minRating === 4.5 ? "currentColor" : "none"} className={minRating === 4.5 ? "text-[#b0f020]" : "text-gray-500"} />
+                                        4.5 & up
                                     </button>
-                                ))}
+                                    <button
+                                        onClick={() => setMinRating(minRating === 4.0 ? 0 : 4.0)}
+                                        className={`w-full text-left px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all ${minRating === 4.0 ? 'bg-[#1c221c] border border-[#b0f020]/30 text-[#b0f020]' : 'hover:bg-[#121612] text-gray-400'}`}
+                                    >
+                                        <Star size={16} fill={minRating === 4.0 ? "currentColor" : "none"} className={minRating === 4.0 ? "text-[#b0f020]" : "text-gray-500"} />
+                                        4.0 & up
+                                    </button>
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Mobile Show Results Button */}
-                        <div className="md:hidden pt-4 pb-2 border-t border-[#1c221c]">
-                            <button 
-                                onClick={() => setIsMobileFiltersOpen(false)}
-                                className="w-full bg-[#b0f020] text-[#0f120f] py-3 rounded-xl font-bold text-sm"
-                            >
-                                Show {filteredTrainers.length} Results
-                            </button>
+                            {/* Availability */}
+                            <div>
+                                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Availability</h3>
+                                <div className="grid grid-cols-2 gap-2">
+                                    {availabilityOptions.map(option => (
+                                        <button
+                                            key={option}
+                                            onClick={() => toggleAvailability(option)}
+                                            className={`py-2 text-xs font-bold rounded-full border transition-all ${selectedAvailability.includes(option) ? 'bg-[#1c221c] border-[#b0f020] text-white' : 'border-[#1c221c] text-gray-500 hover:border-gray-600'}`}
+                                        >
+                                            {option}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Mobile Show Results Button */}
+                            <div className="md:hidden pt-4 pb-2 border-t border-[#1c221c]">
+                                <button
+                                    onClick={() => setIsMobileFiltersOpen(false)}
+                                    className="w-full bg-[#b0f020] text-[#0f120f] py-3 rounded-xl font-bold text-sm"
+                                >
+                                    Show {filteredTrainers.length} Results
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
                     {/* Main Content Area */}
                     <div className="flex-1">
@@ -241,7 +241,7 @@ const Trainers = () => {
                                 <div className="flex items-center gap-2 w-full sm:w-auto">
                                     <span className="text-sm text-gray-400 shrink-0">Sort by:</span>
                                     <div className="relative w-full sm:w-auto">
-                                        <select 
+                                        <select
                                             value={sortBy}
                                             onChange={(e) => setSortBy(e.target.value)}
                                             className="appearance-none w-full bg-transparent border border-[#1c221c] rounded-full py-2 pl-4 pr-10 text-sm font-medium focus:outline-none focus:border-[#b0f020] cursor-pointer"
@@ -258,16 +258,16 @@ const Trainers = () => {
 
                         {/* Trainer Grid */}
                         {filteredTrainers.length > 0 ? (
-                            <motion.div 
+                            <motion.div
                                 variants={containerVariants}
                                 initial="hidden"
                                 animate="visible"
                                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                             >
                                 {filteredTrainers.map(trainer => (
-                                    <motion.div 
+                                    <motion.div
                                         key={trainer.id}
-                                        variants={itemVariants} 
+                                        variants={itemVariants}
                                         className="bg-[#121612] border border-[#1c221c] rounded-3xl overflow-hidden hover:border-[#b0f020]/30 transition-all flex flex-col group"
                                     >
                                         <div className="relative h-64 bg-[#1c221c] overflow-hidden">
@@ -290,7 +290,7 @@ const Trainers = () => {
                                             <p className="text-sm text-gray-400 mb-6 flex-1 leading-relaxed line-clamp-3">
                                                 {trainer.bio}
                                             </p>
-                                            
+
                                             <div className="mb-6">
                                                 <span className="text-sm text-gray-400">Starting at </span>
                                                 <span className="text-[#b0f020] font-bold text-lg">${trainer.price}</span>
@@ -298,7 +298,7 @@ const Trainers = () => {
                                             </div>
 
                                             <div className="flex gap-3">
-                                                <Link 
+                                                <Link
                                                     to={`/trainer/${trainer.id}`}
                                                     className="flex-1 py-3 px-4 rounded-xl border border-[#1c221c] text-xs font-bold hover:bg-[#1c221c] transition-colors text-center"
                                                 >
@@ -316,7 +316,7 @@ const Trainers = () => {
                             <div className="text-center py-20 bg-[#121612] border border-[#1c221c] rounded-3xl">
                                 <h3 className="text-xl font-bold mb-2">No Trainers Found</h3>
                                 <p className="text-gray-400 text-sm">Try adjusting your filters to find the perfect match.</p>
-                                <button 
+                                <button
                                     onClick={() => {
                                         setSelectedSpecialties([]);
                                         setMinRating(0);
