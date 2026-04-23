@@ -146,7 +146,7 @@ const ChatBot = () => {
                                     value={inputValue}
                                     onChange={(e) => setInputValue(e.target.value)}
                                     placeholder="Type your message..."
-                                    className="w-full bg-[#0a0d0a] border border-white/5 rounded-xl py-3 pl-4 pr-12 text-xs focus:outline-none focus:border-[#b0f020] transition-all"
+                                    className="w-full text-white border border-white/5 rounded-xl py-3 pl-4 pr-12 text-xs focus:outline-none focus:border-[#b0f020] transition-all"
                                 />
                                 <button
                                     type="submit"
