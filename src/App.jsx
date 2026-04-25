@@ -43,22 +43,22 @@ const PageLoader = () => (
     <div className="bg-[#0a0d0a] min-h-screen flex flex-col items-center justify-center gap-8 overflow-hidden">
         <div className="relative">
             {/* Pulsing Glow */}
-            <motion.div 
-                animate={{ 
+            <motion.div
+                animate={{
                     scale: [1, 1.2, 1],
                     opacity: [0.2, 0.4, 0.2]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
                 className="absolute inset-0 bg-[#b0f020] blur-[60px] rounded-full"
             />
-            
+
             {/* Rotating Dumbbell */}
             <motion.div
-                animate={{ 
+                animate={{
                     rotate: 360,
                     scale: [1, 1.1, 1]
                 }}
-                transition={{ 
+                transition={{
                     rotate: { duration: 3, repeat: Infinity, ease: "linear" },
                     scale: { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
                 }}
@@ -70,6 +70,7 @@ const PageLoader = () => (
     </div>
 );
 
+// Scroll-to-top button component
 const ScrollToTop = () => {
     const [isVisible, setIsVisible] = useState(false);
 
@@ -106,6 +107,7 @@ const ScrollToTop = () => {
     );
 };
 
+// ChatBot component
 const ChatBot = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
@@ -211,6 +213,8 @@ const ChatBot = () => {
     );
 };
 
+
+// Main App component
 const App = () => {
     const [isAppLoading, setIsAppLoading] = useState(true);
 
