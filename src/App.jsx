@@ -11,7 +11,8 @@ const TrainerProfile = lazy(() => import('./pages/TrainerDetails'));
 const Shop = lazy(() => import('./pages/Shop'));
 const ProductDetails = lazy(() => import('./pages/ProductDetails'));
 const GymDetails = lazy(() => import('./pages/GymDetails'));
-const SignUp = lazy(() => import('./pages/Auth/SignUp'));
+// const SignUp = lazy(() => import('./pages/Auth/SignUp'));
+const SignUpV2 = lazy(() => import('./pages/Auth/SignUpV2'));
 const Login = lazy(() => import('./pages/Auth/Login'));
 const ForgetPass = lazy(() => import('./pages/Auth/ForgetPass'));
 const ResetPass = lazy(() => import('./pages/Auth/ResetPass'));
@@ -197,7 +198,7 @@ const App = () => {
                     <Route path="/onboarding-videos" element={<OnBoardingVideos />} />
                     <Route path="/workout-videos" element={<WorkoutVideos />} />
                     <Route path="/recovery-videos" element={<RecoveryVideos />} />
-                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/signup" element={<SignUpV2 />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/forget-password" element={<ForgetPass />} />
                     <Route path="/reset-password" element={<ResetPass />} />
