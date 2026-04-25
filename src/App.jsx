@@ -1,40 +1,72 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { ChevronUp, MessageSquare, X, Send, Bot } from 'lucide-react';
+import { ChevronUp, MessageSquare, X, Send, Bot, Dumbbell } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
-const Gyms = lazy(() => import('./pages/Gyms'));
-const Trainers = lazy(() => import('./pages/Trainers'));
-const TrainerProfile = lazy(() => import('./pages/TrainerDetails'));
-const Shop = lazy(() => import('./pages/Shop'));
-const ProductDetails = lazy(() => import('./pages/ProductDetails'));
-const GymDetails = lazy(() => import('./pages/GymDetails'));
+const Gyms = lazy(() => import('./pages/GYM/Gyms'));
+const Trainers = lazy(() => import('./pages/Trainer/Trainers'));
+const TrainerProfile = lazy(() => import('./pages/Trainer/TrainerDetails'));
+const Shop = lazy(() => import('./pages/Shop/Shop'));
+const ProductDetails = lazy(() => import('./pages/Shop/ProductDetails'));
+const GymDetails = lazy(() => import('./pages/GYM/GymDetails'));
 // const SignUp = lazy(() => import('./pages/Auth/SignUp'));
 const SignUpV2 = lazy(() => import('./pages/Auth/SignUpV2'));
 const Login = lazy(() => import('./pages/Auth/Login'));
 const ForgetPass = lazy(() => import('./pages/Auth/ForgetPass'));
 const ResetPass = lazy(() => import('./pages/Auth/ResetPass'));
 // const VideoLibrary = lazy(() => import('./pages/VideoLibrary'));
-const VideoDetails = lazy(() => import('./pages/VideoDetails'));
-const OnBoardingVideos = lazy(() => import('./pages/OnBoardingVideos'));
-const WorkoutVideos = lazy(() => import('./pages/WorkoutVideos'));
-const RecoveryVideos = lazy(() => import('./pages/RecoveryVideos'));
+const VideoDetails = lazy(() => import('./pages/Videos/VideoDetails'));
+const OnBoardingVideos = lazy(() => import('./pages/Videos/OnBoardingVideos'));
+const WorkoutVideos = lazy(() => import('./pages/Videos/WorkoutVideos'));
+const RecoveryVideos = lazy(() => import('./pages/Videos/RecoveryVideos'));
 const AboutUs = lazy(() => import('./pages/AboutUs'));
 const ContactUs = lazy(() => import('./pages/ContactUs'));
-const AiCoach = lazy(() => import('./pages/AiCoach'));
+const AiCoach = lazy(() => import('./pages/AI/AiCoach'));
 const Profile = lazy(() => import('./pages/Profile'));
-const Cart = lazy(() => import('./pages/Cart'));
-const Wishlist = lazy(() => import('./pages/Wishlist'));
-const CheckOutPage = lazy(() => import('./pages/CheckOutPage'));
-const ConfirmationPayment = lazy(() => import('./pages/ConfirmationPayment'));
+const Cart = lazy(() => import('./pages/Shop/Cart'));
+const Wishlist = lazy(() => import('./pages/Shop/Wishlist'));
+const CheckOutPage = lazy(() => import('./pages/Shop/CheckOutPage'));
+const ConfirmationPayment = lazy(() => import('./pages/Shop/ConfirmationPayment'));
 const TrainersBundles = lazy(() => import('./pages/TrainersBundles'));
+// Dashboards
+const TrainerDashboard = lazy(() => import('./pages/TrainerDashboard/Dashboard'));
+const MemberDashboard = lazy(() => import('./pages/MemberDashboard/Dashboard'));
+const AdminDashboard = lazy(() => import('./pages/Admin/Dashboard'));
+const TrainerClients = lazy(() => import('./pages/TrainerDashboard/Clients'));
+const MyWorkouts = lazy(() => import('./pages/MemberDashboard/MyWorkouts'));
+const MyNutrition = lazy(() => import('./pages/MemberDashboard/MyNutrition'));
 
-// Loading component
+// Loading component - Rotating Dumbbell
 const PageLoader = () => (
-    <div className="bg-[#0a0d0a] min-h-screen flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-[#b0f020]/20 border-t-[#b0f020] rounded-full animate-spin"></div>
+    <div className="bg-[#0a0d0a] min-h-screen flex flex-col items-center justify-center gap-8 overflow-hidden">
+        <div className="relative">
+            {/* Pulsing Glow */}
+            <motion.div 
+                animate={{ 
+                    scale: [1, 1.2, 1],
+                    opacity: [0.2, 0.4, 0.2]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute inset-0 bg-[#b0f020] blur-[60px] rounded-full"
+            />
+            
+            {/* Rotating Dumbbell */}
+            <motion.div
+                animate={{ 
+                    rotate: 360,
+                    scale: [1, 1.1, 1]
+                }}
+                transition={{ 
+                    rotate: { duration: 3, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="relative z-10 text-[#b0f020]"
+            >
+                <Dumbbell size={80} strokeWidth={1.5} />
+            </motion.div>
+        </div>
     </div>
 );
 
@@ -180,6 +212,17 @@ const ChatBot = () => {
 };
 
 const App = () => {
+    const [isAppLoading, setIsAppLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsAppLoading(false);
+        }, 1500);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (isAppLoading) return <PageLoader />;
+
     return (
         <Router>
             <ScrollToTop />
@@ -211,6 +254,13 @@ const App = () => {
                     <Route path="/checkout" element={<CheckOutPage />} />
                     <Route path="/confirmation-payment" element={<ConfirmationPayment />} />
                     <Route path="/bundles" element={<TrainersBundles />} />
+                    {/* Dashboards */}
+                    <Route path="/trainer-dashboard" element={<TrainerDashboard />} />
+                    <Route path="/trainer-dashboard/clients" element={<TrainerClients />} />
+                    <Route path="/member-dashboard" element={<MemberDashboard />} />
+                    <Route path="/member-dashboard/workouts" element={<MyWorkouts />} />
+                    <Route path="/member-dashboard/nutrition" element={<MyNutrition />} />
+                    <Route path="/admin-dashboard" element={<AdminDashboard />} />
                 </Routes>
             </Suspense>
         </Router>

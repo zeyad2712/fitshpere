@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { videos } from '../data/videos';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { videos } from '../../data/videos';
 
 const WorkoutVideos = () => {
     const [searchQuery, setSearchQuery] = useState('');
-    
+
     // Specifically filter for Workout category
     const workoutVideos = videos.filter((video) => {
         const matchesCategory = video.category === 'Workout';
@@ -26,8 +26,8 @@ const WorkoutVideos = () => {
                     transition={{ duration: 0.5 }}
                     className="mb-8"
                 >
-                    <Link 
-                        to="/onboarding-videos" 
+                    <Link
+                        to="/onboarding-videos"
                         className="inline-flex items-center gap-2 text-gray-400 hover:text-[#ff4d4d] transition-colors group"
                     >
                         <svg className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -52,7 +52,7 @@ const WorkoutVideos = () => {
                 </motion.div>
 
                 {/* Search */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
@@ -114,7 +114,7 @@ const WorkoutVideos = () => {
                         ))}
                     </div>
                 ) : (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         className="text-center py-20 bg-white/5 rounded-2xl border border-white/10"

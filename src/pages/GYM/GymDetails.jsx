@@ -7,9 +7,9 @@ import {
     CupSoda, Wifi, Shirt, Dumbbell, Map as MapIcon, ChevronRight,
     X, ChevronLeft, CheckCircle2
 } from 'lucide-react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { gymsData } from '../data/gyms';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { gymsData } from '../../data/gyms';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';

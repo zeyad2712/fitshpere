@@ -18,8 +18,10 @@ import {
     Trash2,
     Edit3,
     LineChart,
-    Phone
+    Phone,
+    LayoutDashboard
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -35,7 +37,7 @@ const Profile = () => {
         email: 'ziad.waleed@example.com',
         phone: '+20 123 456 7890',
         dob: '1999-05-15',
-        role: 'Member',
+        role: 'trainer',
         goal: 'Hypertrophy',
         weight: '78kg',
         height: '182cm',
@@ -147,7 +149,15 @@ const Profile = () => {
                                         {userData.role}
                                     </span>
                                 </div>
-                                <p className="text-sm text-gray-500 truncate">{userData.email}</p>
+                                <p className="text-sm text-gray-500 truncate mb-6">{userData.email}</p>
+                                
+                                <Link 
+                                    to={`/${userData.role.toLowerCase()}-dashboard`}
+                                    className="w-full bg-[#b0f020] text-black px-4 py-3 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-[#9de018] transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-[0_10px_20px_rgba(176,240,32,0.1)]"
+                                >
+                                    <LayoutDashboard size={18} />
+                                    Go to Dashboard
+                                </Link>
                             </div>
 
                             {tabs.map((tab) => (
@@ -236,7 +246,7 @@ const Profile = () => {
                                             </h1>
                                             <p className="text-xs md:text-sm text-gray-500">Track your daily progress and statistics.</p>
                                         </div>
-                                        <button
+                                        {/* <button
                                             onClick={() => {
                                                 setEditingItem(null);
                                                 setModalType(activeTab);
@@ -245,7 +255,7 @@ const Profile = () => {
                                             className="bg-[#b0f020] text-black px-5 md:px-6 py-2 md:py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-[#9de018] transition-all transform hover:scale-105 text-sm"
                                         >
                                             <Plus size={16} /> Add Log
-                                        </button>
+                                        </button> */}
                                     </div>
 
                                     <div className="overflow-x-auto rounded-3xl border border-white/5 bg-[#151a15]/30">

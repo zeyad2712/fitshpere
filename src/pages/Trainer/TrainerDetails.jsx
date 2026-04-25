@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, useMotionValue, useTransform, useInView, animate } from 'framer-motion';
 import { MapPin, Star, Award, ShieldCheck, ArrowLeft, Heart, Share2 } from 'lucide-react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { trainersData } from '../data/trainers';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { trainersData } from '../../data/trainers';
 
 const Counter = ({ value }) => {
     const count = useMotionValue(0);

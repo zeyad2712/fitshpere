@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Trash2, Plus, Minus, ShoppingBag, ArrowLeft, ArrowRight, CreditCard, ShieldCheck, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { productsData } from '../data/shop';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { productsData } from '../../data/shop';
 
 const Cart = () => {
     // Initial mock cart items (first 3 items from productsData)

@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-    CreditCard, 
-    MapPin, 
-    Truck, 
-    Lock, 
-    ArrowLeft, 
-    CheckCircle2, 
-    ShieldCheck, 
+import {
+    CreditCard,
+    MapPin,
+    Truck,
+    Lock,
+    ArrowLeft,
+    CheckCircle2,
+    ShieldCheck,
     Info,
     ChevronRight
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { productsData } from '../data/shop';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { productsData } from '../../data/shop';
 
 const CheckOutPage = () => {
     const navigate = useNavigate();
-    
+
     // Mock cart data (simulating state passed from cart)
     const cartItems = [
         { ...productsData[0], quantity: 1 },
@@ -71,7 +71,7 @@ const CheckOutPage = () => {
         <div className="bg-[#0a0d0a] min-h-screen text-white font-sans selection:bg-[#b0f020] selection:text-black pt-20">
             <Navbar />
 
-            <motion.main 
+            <motion.main
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
@@ -90,7 +90,7 @@ const CheckOutPage = () => {
                     {/* Left Column: Form Details */}
                     <div className="lg:col-span-2 space-y-12">
                         <form onSubmit={handleSubmit} className="space-y-12">
-                            
+
                             {/* Contact Section */}
                             <motion.section variants={sectionVariants} className="space-y-6">
                                 <div className="flex items-center gap-4 mb-2">
@@ -102,13 +102,13 @@ const CheckOutPage = () => {
                                 <div className="grid grid-cols-1 gap-4">
                                     <div className="form-group">
                                         <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Email Address</label>
-                                        <input 
-                                            type="email" 
+                                        <input
+                                            type="email"
                                             name="email"
                                             required
                                             value={formData.email}
                                             onChange={handleInputChange}
-                                            placeholder="athlete@fitsphere.com" 
+                                            placeholder="athlete@fitsphere.com"
                                             className="w-full bg-[#121612] border border-white/5 rounded-2xl py-4 px-6 focus:outline-none focus:border-[#b0f020] transition-all"
                                         />
                                     </div>
@@ -126,63 +126,63 @@ const CheckOutPage = () => {
                                 <div className="grid md:grid-cols-2 gap-4">
                                     <div className="form-group">
                                         <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">First Name</label>
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             name="firstName"
                                             required
                                             value={formData.firstName}
                                             onChange={handleInputChange}
-                                            placeholder="John" 
+                                            placeholder="John"
                                             className="w-full bg-[#121612] border border-white/5 rounded-2xl py-4 px-6 focus:outline-none focus:border-[#b0f020] transition-all"
                                         />
                                     </div>
                                     <div className="form-group">
                                         <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Last Name</label>
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             name="lastName"
                                             required
                                             value={formData.lastName}
                                             onChange={handleInputChange}
-                                            placeholder="Doe" 
+                                            placeholder="Doe"
                                             className="w-full bg-[#121612] border border-white/5 rounded-2xl py-4 px-6 focus:outline-none focus:border-[#b0f020] transition-all"
                                         />
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Street Address</label>
-                                    <input 
-                                        type="text" 
+                                    <input
+                                        type="text"
                                         name="address"
                                         required
                                         value={formData.address}
                                         onChange={handleInputChange}
-                                        placeholder="123 Elite Street" 
+                                        placeholder="123 Elite Street"
                                         className="w-full bg-[#121612] border border-white/5 rounded-2xl py-4 px-6 focus:outline-none focus:border-[#b0f020] transition-all"
                                     />
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4">
                                     <div className="form-group">
                                         <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">City</label>
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             name="city"
                                             required
                                             value={formData.city}
                                             onChange={handleInputChange}
-                                            placeholder="Los Angeles" 
+                                            placeholder="Los Angeles"
                                             className="w-full bg-[#121612] border border-white/5 rounded-2xl py-4 px-6 focus:outline-none focus:border-[#b0f020] transition-all"
                                         />
                                     </div>
                                     <div className="form-group">
                                         <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Zip Code</label>
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             name="zipCode"
                                             required
                                             value={formData.zipCode}
                                             onChange={handleInputChange}
-                                            placeholder="90001" 
+                                            placeholder="90001"
                                             className="w-full bg-[#121612] border border-white/5 rounded-2xl py-4 px-6 focus:outline-none focus:border-[#b0f020] transition-all"
                                         />
                                     </div>
@@ -201,13 +201,13 @@ const CheckOutPage = () => {
                                     <div className="form-group">
                                         <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Card Number</label>
                                         <div className="relative">
-                                            <input 
-                                                type="text" 
+                                            <input
+                                                type="text"
                                                 name="cardNumber"
                                                 required
                                                 value={formData.cardNumber}
                                                 onChange={handleInputChange}
-                                                placeholder="0000 0000 0000 0000" 
+                                                placeholder="0000 0000 0000 0000"
                                                 className="w-full bg-[#0a0d0a] border border-white/5 rounded-2xl py-4 px-6 focus:outline-none focus:border-[#b0f020] transition-all"
                                             />
                                             <CreditCard className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
@@ -216,25 +216,25 @@ const CheckOutPage = () => {
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="form-group">
                                             <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">Expiry Date</label>
-                                            <input 
-                                                type="text" 
+                                            <input
+                                                type="text"
                                                 name="expiry"
                                                 required
                                                 value={formData.expiry}
                                                 onChange={handleInputChange}
-                                                placeholder="MM / YY" 
+                                                placeholder="MM / YY"
                                                 className="w-full bg-[#0a0d0a] border border-white/5 rounded-2xl py-4 px-6 focus:outline-none focus:border-[#b0f020] transition-all"
                                             />
                                         </div>
                                         <div className="form-group">
                                             <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-2 block">CVV</label>
-                                            <input 
-                                                type="text" 
+                                            <input
+                                                type="text"
                                                 name="cvv"
                                                 required
                                                 value={formData.cvv}
                                                 onChange={handleInputChange}
-                                                placeholder="123" 
+                                                placeholder="123"
                                                 className="w-full bg-[#0a0d0a] border border-white/5 rounded-2xl py-4 px-6 focus:outline-none focus:border-[#b0f020] transition-all"
                                             />
                                         </div>
@@ -255,9 +255,9 @@ const CheckOutPage = () => {
                             <div className="absolute top-0 right-0 p-8 opacity-5">
                                 <Truck size={120} />
                             </div>
-                            
+
                             <h2 className="text-xl font-bold mb-8 uppercase tracking-tight italic">Order <span className="text-[#b0f020]">Summary</span></h2>
-                            
+
                             <div className="space-y-6 mb-8">
                                 {cartItems.map((item) => (
                                     <div key={item.id} className="flex gap-4">

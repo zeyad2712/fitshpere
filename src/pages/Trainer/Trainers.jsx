@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ChevronDown, Star, X } from 'lucide-react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { trainersData } from '../data/trainers';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { trainersData } from '../../data/trainers';
 
 const Trainers = () => {
     const [searchTerm, setSearchTerm] = useState("");

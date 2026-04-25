@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Search, ChevronDown, Star, X, ShoppingCart, Activity, Dumbbell, Shirt, ArrowRight, Heart } from 'lucide-react';
-import Navbar from '../components/Navbar';
+import Navbar from '../../components/Navbar';
 // import ShopHeader from '../components/ShopHeader';
-import Footer from '../components/Footer';
-import { productsData } from '../data/shop';
+import Footer from '../../components/Footer';
+import { productsData } from '../../data/shop';
 
 const Shop = () => {
     const [searchTerm, setSearchTerm] = useState("");

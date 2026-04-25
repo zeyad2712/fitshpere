@@ -1,34 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-    CheckCircle, 
-    ArrowRight, 
-    Download, 
-    ShoppingBag, 
-    Package, 
+import {
+    CheckCircle,
+    ArrowRight,
+    Download,
+    ShoppingBag,
+    Package,
     Mail,
     Share2
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const ConfirmationPayment = () => {
     // Generate a random order number
     const orderNumber = "FS-" + Math.floor(Math.random() * 900000 + 100000);
-    
+
     return (
         <div className="bg-[#0a0d0a] min-h-screen text-white font-sans selection:bg-[#b0f020] selection:text-black pt-20">
             <Navbar />
 
-            <motion.main 
+            <motion.main
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="max-w-3xl mx-auto px-4 md:px-8 py-16 md:py-24 text-center"
             >
                 {/* Success Animation Container */}
                 <div className="relative mb-12">
-                    <motion.div 
+                    <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ type: "spring", damping: 12, stiffness: 200 }}
@@ -36,14 +36,14 @@ const ConfirmationPayment = () => {
                     >
                         <CheckCircle size={48} className="text-black" />
                     </motion.div>
-                    
+
                     {/* Floating decorative elements */}
-                    <motion.div 
+                    <motion.div
                         animate={{ y: [0, -10, 0] }}
                         transition={{ duration: 3, repeat: Infinity }}
                         className="absolute -top-4 left-1/4 w-3 h-3 bg-[#b0f020]/20 rounded-full"
                     />
-                    <motion.div 
+                    <motion.div
                         animate={{ y: [0, 10, 0] }}
                         transition={{ duration: 4, repeat: Infinity }}
                         className="absolute top-1/2 right-1/4 w-2 h-2 bg-[#b0f020]/40 rounded-full"
@@ -98,15 +98,15 @@ const ConfirmationPayment = () => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link 
-                            to="/profile" 
+                        <Link
+                            to="/profile"
                             className="w-full sm:w-auto bg-white/5 border border-white/10 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-white/10 transition-all flex items-center justify-center gap-3"
                         >
                             <ShoppingBag size={18} />
                             Order History
                         </Link>
-                        <Link 
-                            to="/shop" 
+                        <Link
+                            to="/shop"
                             className="w-full sm:w-auto bg-[#b0f020] text-black px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-[#9de018] shadow-[0_20px_40px_rgba(176,240,32,0.15)] transition-all flex items-center justify-center gap-3"
                         >
                             Return to Shop

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { videos } from '../data/videos';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { videos } from '../../data/videos';
 
 const VideoDetails = () => {
     const { id } = useParams();
@@ -38,7 +38,7 @@ const VideoDetails = () => {
             <main className="flex-grow mt-24">
                 {/* Back Button */}
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-                    <button 
+                    <button
                         onClick={() => navigate(-1)}
                         className="flex items-center gap-2 text-gray-400 hover:text-[#b0f020] transition-colors group"
                     >
@@ -49,7 +49,7 @@ const VideoDetails = () => {
                     </button>
                 </div>
                 {/* Video Player Section */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
@@ -58,7 +58,7 @@ const VideoDetails = () => {
                     <div className="max-w-6xl mx-auto border-b border-white/10">
                         <div className="relative pt-[56.25%] w-full bg-black">
                             {video.videoUrl.includes('youtube.com') || video.videoUrl.includes('youtu.be') ? (
-                                <iframe 
+                                <iframe
                                     className="absolute inset-0 w-full h-full border-0"
                                     src={video.videoUrl.replace('watch?v=', 'embed/').split('&')[0]}
                                     title={video.title}
@@ -81,7 +81,7 @@ const VideoDetails = () => {
 
                 {/* Video Info Section */}
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
@@ -90,8 +90,8 @@ const VideoDetails = () => {
                         <div className="flex-1">
                             <div className="flex flex-wrap items-center gap-3 mb-4">
                                 <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${video.category === 'Workout'
-                                        ? 'bg-red-500/20 text-red-500 border border-red-500/50'
-                                        : 'bg-blue-500/20 text-blue-500 border border-blue-500/50'
+                                    ? 'bg-red-500/20 text-red-500 border border-red-500/50'
+                                    : 'bg-blue-500/20 text-blue-500 border border-blue-500/50'
                                     }`}>
                                     {video.category}
                                 </span>
@@ -137,8 +137,8 @@ const VideoDetails = () => {
                                     Related {video.category}s
                                     <span className="absolute -bottom-2 left-0 w-1/2 h-1 bg-[#b0f020]"></span>
                                 </h2>
-                                <Link 
-                                    to={video.category === 'Workout' ? '/workout-videos' : '/recovery-videos'} 
+                                <Link
+                                    to={video.category === 'Workout' ? '/workout-videos' : '/recovery-videos'}
                                     className="text-[#b0f020] hover:text-white transition-colors flex items-center gap-2 font-medium"
                                 >
                                     View All

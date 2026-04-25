@@ -5,9 +5,9 @@ import { MapPin, Search, Star, Clock, Shield, Filter, Map as MapIcon, List } fro
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { gymsData } from '../data/gyms';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { gymsData } from '../../data/gyms';
 
 // Fix for leaflet default icon issue in React
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -69,21 +69,21 @@ const Gyms = () => {
                     <div className="flex flex-col sm:flex-row items-center gap-4">
                         {/* View Switcher */}
                         <div className="flex bg-[#121612] p-1 rounded-xl border border-[#1c221c] self-stretch sm:self-auto">
-                            <button 
+                            <button
                                 onClick={() => setViewMode('list')}
                                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all ${viewMode === 'list' ? 'bg-[#b0f020] text-black shadow-[0_0_15px_rgba(176,240,32,0.2)]' : 'text-gray-400 hover:text-white'}`}
                             >
                                 <List size={16} />
                                 <span className="hidden md:inline">List</span>
                             </button>
-                            <button 
+                            <button
                                 onClick={() => setViewMode('split')}
                                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all ${viewMode === 'split' ? 'bg-[#b0f020] text-black shadow-[0_0_15px_rgba(176,240,32,0.2)]' : 'text-gray-400 hover:text-white'}`}
                             >
                                 <Shield size={16} />
                                 <span className="hidden md:inline">Split</span>
                             </button>
-                            <button 
+                            <button
                                 onClick={() => setViewMode('map')}
                                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all ${viewMode === 'map' ? 'bg-[#b0f020] text-black shadow-[0_0_15px_rgba(176,240,32,0.2)]' : 'text-gray-400 hover:text-white'}`}
                             >
@@ -172,43 +172,43 @@ const Gyms = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             className={`${viewMode === 'split' ? 'lg:w-[450px] xl:w-[550px]' : 'w-full'} h-[500px] lg:h-full bg-[#121612] rounded-3xl overflow-hidden border border-[#1c221c] relative z-10`}
                         >
-                        <MapContainer
-                            center={mapCenter}
-                            zoom={11}
-                            style={{ height: '100%', width: '100%', background: '#0a0d0a' }}
-                            scrollWheelZoom={true}
-                        >
-                            <TileLayer
-                                url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-                                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-                            />
-                            {filteredGyms.map(gym => (
-                                <Marker
-                                    key={gym.id}
-                                    position={gym.coords}
-                                    eventHandlers={{
-                                        click: () => setSelectedGym(gym),
-                                    }}
-                                >
-                                    <Popup className="custom-popup">
-                                        <div className="p-1 text-black">
-                                            <h4 className="font-bold">{gym.name}</h4>
-                                            <p className="text-xs text-gray-600">{gym.location}</p>
-                                        </div>
-                                    </Popup>
-                                </Marker>
-                            ))}
-                            <MapController center={selectedGym?.coords} />
-                        </MapContainer>
+                            <MapContainer
+                                center={mapCenter}
+                                zoom={11}
+                                style={{ height: '100%', width: '100%', background: '#0a0d0a' }}
+                                scrollWheelZoom={true}
+                            >
+                                <TileLayer
+                                    url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                                />
+                                {filteredGyms.map(gym => (
+                                    <Marker
+                                        key={gym.id}
+                                        position={gym.coords}
+                                        eventHandlers={{
+                                            click: () => setSelectedGym(gym),
+                                        }}
+                                    >
+                                        <Popup className="custom-popup">
+                                            <div className="p-1 text-black">
+                                                <h4 className="font-bold">{gym.name}</h4>
+                                                <p className="text-xs text-gray-600">{gym.location}</p>
+                                            </div>
+                                        </Popup>
+                                    </Marker>
+                                ))}
+                                <MapController center={selectedGym?.coords} />
+                            </MapContainer>
 
-                        {/* Map Overlay Button (for mobile) */}
-                        <div className="absolute top-4 right-4 z-[1000] lg:hidden">
-                            <button className="bg-white text-black p-2 rounded-lg shadow-xl">
-                                <MapIcon size={20} />
-                            </button>
-                        </div>
-                    </motion.div>
-                )}
+                            {/* Map Overlay Button (for mobile) */}
+                            <div className="absolute top-4 right-4 z-[1000] lg:hidden">
+                                <button className="bg-white text-black p-2 rounded-lg shadow-xl">
+                                    <MapIcon size={20} />
+                                </button>
+                            </div>
+                        </motion.div>
+                    )}
                 </div>
             </div>
 

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, ShoppingCart, Trash2, ArrowRight, ShoppingBag, Star, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { productsData } from '../data/shop';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { productsData } from '../../data/shop';
 
 const Wishlist = () => {
     // Initial mock wishlist items (items 4, 5, 6 from productsData)
@@ -35,7 +35,7 @@ const Wishlist = () => {
         <div className="bg-[#0a0d0a] min-h-screen text-white font-sans selection:bg-[#b0f020] selection:text-black pt-20">
             <Navbar />
 
-            <motion.main 
+            <motion.main
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
@@ -58,8 +58,8 @@ const Wishlist = () => {
                         </p>
                     </div>
 
-                    <Link 
-                        to="/shop" 
+                    <Link
+                        to="/shop"
                         className="group flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-[#b0f020] transition-colors bg-[#121612] px-6 py-3 rounded-2xl border border-white/5"
                     >
                         <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
@@ -68,7 +68,7 @@ const Wishlist = () => {
                 </div>
 
                 {wishlistItems.length > 0 ? (
-                    <motion.div 
+                    <motion.div
                         variants={containerVariants}
                         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
                     >
@@ -83,14 +83,14 @@ const Wishlist = () => {
                                 >
                                     {/* Product Image Wrapper */}
                                     <div className="relative h-72 bg-[#0a0d0a] overflow-hidden">
-                                        <img 
-                                            src={item.image} 
-                                            alt={item.name} 
+                                        <img
+                                            src={item.image}
+                                            alt={item.name}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                                         />
-                                        
+
                                         {/* Remove Button (Floating) */}
-                                        <button 
+                                        <button
                                             onClick={() => removeItem(item.id)}
                                             className="absolute top-6 right-6 w-10 h-10 bg-black/40 backdrop-blur-md border border-white/10 rounded-xl flex items-center justify-center text-gray-400 hover:text-red-500 transition-all hover:scale-110"
                                             title="Remove from Wishlist"
@@ -151,7 +151,7 @@ const Wishlist = () => {
                     </motion.div>
                 ) : (
                     /* Empty State */
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         className="bg-[#121612] border border-white/5 rounded-[3rem] p-16 md:p-32 text-center flex flex-col items-center"
@@ -163,8 +163,8 @@ const Wishlist = () => {
                         <p className="text-gray-500 max-w-sm mb-12 font-medium leading-relaxed">
                             Start adding items you love to your wishlist and we'll keep them safe for you until you're ready.
                         </p>
-                        <Link 
-                            to="/shop" 
+                        <Link
+                            to="/shop"
                             className="bg-[#b0f020] text-black px-12 py-5 rounded-2xl font-black uppercase tracking-widest text-sm flex items-center gap-4 hover:bg-[#9de018] shadow-[0_20px_40px_rgba(176,240,32,0.2)] transition-all"
                         >
                             Explore Shop
